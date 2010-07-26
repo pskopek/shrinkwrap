@@ -19,6 +19,8 @@ package org.jboss.shrinkwrap.maven.impl;
 import java.io.File;
 import java.util.Arrays;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.zip.ZipFile;
 
 import org.apache.maven.Maven;
@@ -48,6 +50,8 @@ import org.jboss.shrinkwrap.maven.api.MavenImporter;
  */
 public class MavenImporterImpl extends AssignableBase implements MavenImporter
 {
+   private static final Logger log = Logger.getLogger(MavenImporterImpl.class.getName());
+   
    private static DefaultPlexusContainer container = null; 
    
    private PlexusContainer getInstance() 
@@ -150,6 +154,22 @@ public class MavenImporterImpl extends AssignableBase implements MavenImporter
       
       
       MavenExecutionResult result = maven.execute(request);
+      
+      if(result.hasExceptions())
+      {
+         if(result.getExceptions().size() == 1)
+         {
+            throw new RuntimeException("Exception thrown during build", result.getExceptions().get(0));
+         }
+         else
+         {
+            for(Throwable exception : result.getExceptions())
+            {
+               log.log(Level.SEVERE, "Exception thrown during build", exception);
+            }
+            throw new RuntimeException("Multiple Exceptions during build, see log");
+         }
+      }
       
       MavenProject project = result.getProject();
       Build build = project.getBuild();
