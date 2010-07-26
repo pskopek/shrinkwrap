@@ -59,7 +59,7 @@
       <scope>test</scope>
     </dependency>
     
-    <!-- org.jboss:jboss-vfs --> 
+    <!-- Maven deps --> 
     
     <dependency>
       <groupId>org.apache.maven</groupId>
@@ -76,14 +76,5 @@
     </dependency>
   </dependencies>
 
-  <!-- Build Configuration -->
-  <build>
-  
-    <plugins>
-
-    </plugins>
-    
-  </build>
-  
 </project>
 
