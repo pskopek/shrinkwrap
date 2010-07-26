@@ -110,7 +110,7 @@ public class MavenImporterImpl extends AssignableBase implements MavenImporter
       MavenExecutionRequest request = new DefaultMavenExecutionRequest();
       request.setLocalRepository(new MavenArtifactRepository(
             "local", 
-            "file:///home/aslak/.m2/repository", 
+            "file://" + System.getProperty("user.home") + "/.m2/repository", 
             layout, 
             new ArtifactRepositoryPolicy(true, ArtifactRepositoryPolicy.UPDATE_POLICY_NEVER, ArtifactRepositoryPolicy.CHECKSUM_POLICY_WARN), 
             new ArtifactRepositoryPolicy(true, ArtifactRepositoryPolicy.UPDATE_POLICY_NEVER, ArtifactRepositoryPolicy.CHECKSUM_POLICY_WARN)));
