@@ -46,7 +46,7 @@ public class MavenImporterImplTestCase
       long start = System.currentTimeMillis();
       JavaArchive jar = ShrinkWrap.create(JavaArchive.class)
                                     .as(MavenImporter.class)
-                                       .from(new File("src/test/resources/test-project/pom.xml"))
+                                       .fromPom(new File("src/test/resources/test-project/pom.xml"))
                                     .as(JavaArchive.class);
      
       log.info(jar.toString(Formatters.VERBOSE));

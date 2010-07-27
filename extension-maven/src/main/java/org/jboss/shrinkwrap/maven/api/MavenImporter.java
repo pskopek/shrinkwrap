@@ -21,10 +21,10 @@ import java.io.File;
 import org.jboss.shrinkwrap.api.Assignable;
 
 /**
- * A ShrinkShrinkWrap Importer that will build and import the generated artifact from a Maven project. 
+ * A ShrinkShrinkWrap Importer that will build and import the 
+ * generated artifact from a Maven project. 
  *
  * @author <a href="mailto:aslak@redhat.com">Aslak Knutsen</a>
- * @version $Revision: $
  */
 public interface MavenImporter extends Assignable
 { 
@@ -35,6 +35,6 @@ public interface MavenImporter extends Assignable
     * @param pom The projects pom file to build.
     * @return
     */
-   MavenImporter from(File pom);
+   MavenImporter fromPom(File pom);
    
 }
