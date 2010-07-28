@@ -85,7 +85,7 @@ public class MavenImporterImpl extends AssignableBase implements MavenImporter
     * Name of the property denoting whether or not to skip tests during the package phase
     */
    private static final String PROP_SKIP_TESTS = "maven.test.skip";
-   
+
    /**
     * '.'
     */
