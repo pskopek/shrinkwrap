@@ -158,7 +158,7 @@ public class MavenImporterImpl extends AssignableBase implements MavenImporter
    {
       try
       {
-         archive.as(ZipImporter.class).importZip(new ZipFile(artifact));
+         archive.as(ZipImporter.class).importFrom(new ZipFile(artifact));
       }
       catch (Exception e)
       {
